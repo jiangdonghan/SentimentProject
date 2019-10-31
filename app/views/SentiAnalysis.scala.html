@@ -9,7 +9,7 @@
     @* Flash shows updates to a page *@
 
     <div>
-        <h2>Sentiment analysis approach1</h2>
+        <h2>Sentiment analysis by SparkNLP</h2>
         @request.flash.data.map{ case (text1, text2) =>
         <div>@text1: @text2</div>
         }
@@ -28,7 +28,7 @@
 
                 <hr/>
     <div>
-        <h2>Sentiment analysis approach2</h2>
+        <h2>Sentiment analysis by EmoTxt</h2>
         @request.flash.data.map{ case (text1, text2) =>
         <div>@text1: @text2</div>
         }
@@ -57,11 +57,11 @@
 
     @helper.form(postUrl){
         @helper.CSRF.formField
-        <h3>Sentiment anlysis approach1 input</h3>
+        <h3>Sentiment anlysis by sparkNLP input</h3>
         @helper.inputText(form("text1"))
 
         <button>Sentiment Analysis</button>
-                <h3>Sentiment anlysis approach2 input</h3>
+                <h3>Sentiment anlysis by EmoTxt input</h3>
         @helper.inputText(form("text2"))
 
         <button>Sentiment Analysis</button>
