@@ -1,0 +1,69 @@
+@(inputs: Seq[Text], form: Form[TextForm.Data], postUrl: Call)(implicit request: MessagesRequestHeader)
+
+    @main("Sentiment Analysis") {
+    <div id="top">
+        <h1>Sentiment Analysis</h1>
+    </div>
+
+
+    @* Flash shows updates to a page *@
+
+    <div>
+        <h2>Sentiment analysis approach1</h2>
+        @request.flash.data.map{ case (text1, text2) =>
+        <div>@text1: @text2</div>
+        }
+        <table>
+            <thead>
+                <tr><th>Text</th><th>Result</th>
+            </thead>
+            <tbody>
+            @for(i <- inputs) {
+                <tr><td>@i.text1</td><td>@i.text2</td></tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+
+                <hr/>
+    <div>
+        <h2>Sentiment analysis approach2</h2>
+        @request.flash.data.map{ case (text1, text2) =>
+        <div>@text1: @text2</div>
+        }
+        <table>
+            <thead>
+                <tr><th>Text</th><th>Result</th>
+            </thead>
+            <tbody>
+            @for(i <- inputs) {
+                <tr><td>@i.text1</td><td>@i.text2</td></tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+
+    <hr/>
+            @* Global errors are not tied to any particular form field *@
+    @if(form.hasGlobalErrors) {
+    @form.globalErrors.map { error: FormError =>
+        <div>
+        @error.key: @error.message
+        </div>
+    }
+    }
+
+    @helper.form(postUrl){
+        @helper.CSRF.formField
+        <h3>Sentiment anlysis approach1 input</h3>
+        @helper.inputText(form("text1"))
+
+        <button>Sentiment Analysis</button>
+                <h3>Sentiment anlysis approach2 input</h3>
+        @helper.inputText(form("text2"))
+
+        <button>Sentiment Analysis</button>
+    }}
+

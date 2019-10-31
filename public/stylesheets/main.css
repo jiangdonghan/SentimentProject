@@ -1,0 +1,25 @@
+/*
+ * Copyright (C) 2009-2017 Lightbend Inc. <https://www.lightbend.com>
+ */
+* {
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+}
+h1{
+    text-align: center;
+    color: red;
+}
+th {
+    width: 50%;
+    height: 50px;
+    text-align: center;
+    padding: 10px;
+}
+td{
+    height: 50px;
+    text-align: center;
+    padding: 10px;
+}
