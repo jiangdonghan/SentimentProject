@@ -8,6 +8,10 @@ import play.api.data._
 import play.api.i18n._
 import play.api.mvc._
 //import uk.ac.wlv.sentistrength.SentiStrength
+/**
+ * Trying to controll two different sentiment analysis approach here
+ *
+ */
 class AnalysisController  @Inject()(cc: MessagesControllerComponents) extends MessagesAbstractController(cc){
   import TextForm._
   private val inputs = scala.collection.mutable.ArrayBuffer(

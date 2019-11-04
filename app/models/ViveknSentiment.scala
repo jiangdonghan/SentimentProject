@@ -14,6 +14,11 @@ import com.johnsnowlabs.nlp.base._
 import com.johnsnowlabs.nlp.util.io.ResourceHelper
 import com.johnsnowlabs.util.Benchmark
 import org.apache.spark.sql.functions.rand
+/**
+ * Trying to Use sparkNlP built-in sentiment analysis annotators tO get result
+ * But i only figured out how to train a pipeline on it
+ */
+
 class ViveknSentiment extends App{
   val spark: SparkSession = SparkSession
     .builder()
@@ -26,9 +31,12 @@ class ViveknSentiment extends App{
   spark.sparkContext.setLogLevel("WARN")
 
   import spark.implicits._
+  // i don't know how i can directly get the result of viveknsentiment
   def getSentiment(text: String): String = {
     val text = ("I really liked this movie!", "positive")
+
     val trainingData = Seq(text).toDS.toDF("text","sentiment")
+
     val documentAssembler = new DocumentAssembler()
       .setInputCol("text")
       .setOutputCol("document")
@@ -50,6 +58,7 @@ class ViveknSentiment extends App{
       .setOutputCol("sentiment")
       .setCorpusPrune(0)
       .setSentimentCol("sentimstatnt")
+
     val sentimentData = sentimentDetector.fit(readyData).transform(readyData)
     sentimentData.show(truncate = false)
 

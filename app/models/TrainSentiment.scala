@@ -6,6 +6,9 @@ import org.apache.spark.ml.Pipeline
 import org.apache.spark.sql.SparkSession
 import scala.io.Source
 
+/**
+ * Using SparkNlp TO train a sentiment analysis pipeline
+ */
 
 object TrainSentiment extends App {
 
