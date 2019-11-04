@@ -1,4 +1,5 @@
 package controllers
+import com.johnsnowlabs.nlp.annotators.sda.vivekn.ViveknSentimentApproach
 import javax.inject.Inject
 import com.johnsnowlabs.nlp.pretrained.PretrainedPipeline
 import com.johnsnowlabs.nlp.{Finisher, SparkNLP}
@@ -19,6 +20,9 @@ class AnalysisController  @Inject()(cc: MessagesControllerComponents) extends Me
     var result:String =annotation("sentiment").head
     return result
   }
+
+
+
 //  def SentiStrengthgetScore(text: String): String = {
 //    val sentiStrength = new SentiStrength
 //    val ssthInitialisation = Array[String]("sentidata", "res/SentiStrength_Data/", "explain")
@@ -44,7 +48,7 @@ class AnalysisController  @Inject()(cc: MessagesControllerComponents) extends Me
       // This is the good case, where the form was successfully parsed as a Data object.
       // getting error
       //val text = Text(name = sentimentAnalysisUsingSparkNLP(data.text1), price = data.text2)
-      val text = Text(text1 = data.text1, text2 = data.text2)
+      val text = Text(text1 = data.text1, text2 = sentimentAnalysisUsingSparkNLP(data.text2))
       inputs.append(text)
       Redirect(routes.AnalysisController.listInputs()).flashing("info" -> "Sentiment Analysis result displayed!")
     }
