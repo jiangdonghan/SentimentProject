@@ -11,4 +11,4 @@ Detailed Approach:
 * Trying to use <a href="https://github.com/collab-uniba/Emotion_and_Polarity_SO" target="_blank">Emotxt</a> as external java library but keep getting [RuntimeException: java.lang.NoClassDefFoundError:  (also it is too large to upload to github)
 
 * Apche Spark Machine learning library followed by this tutorial(<a href = "https://databricks.com/wp-content/uploads/2015/10/STEP-3-Sentiment_Analysis.html" target="_blank"> Databrick Tutorial</a> )
-（https://github.com/jiangdonghan/SentimentProject/blob/master/app/models/TrainSentiment.scala）
+（https://github.com/jiangdonghan/SentimentProject/blob/master/app/models/SparkMilibTrainSentiment.scala）
